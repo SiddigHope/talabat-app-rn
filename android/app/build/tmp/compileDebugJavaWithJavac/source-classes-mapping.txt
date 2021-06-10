@@ -1,0 +1,14 @@
+com/talabatapp/MainApplication.java
+ com.talabatapp.MainApplication
+ com.talabatapp.MainApplication$1
+com/talabatapp/MainActivity.java
+ com.talabatapp.MainActivity
+com/talabatapp/ReactNativeFlipper.java
+ com.talabatapp.ReactNativeFlipper
+ com.talabatapp.ReactNativeFlipper$1
+ com.talabatapp.ReactNativeFlipper$2
+ com.talabatapp.ReactNativeFlipper$2$1
+com/talabatapp/BuildConfig.java
+ com.talabatapp.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
