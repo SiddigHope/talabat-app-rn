@@ -28,7 +28,8 @@ export default class ItemsListComponent extends Component {
         onPress={() => {
           this.props.navigation.navigate('ShowItem', {item: item.item});
         }}
-        style={styles.item}>
+        style={styles.item}
+      >
         <View style={styles.imageCont}>
           <Image
             source={require('../assets/icecreem.jpg')}
@@ -43,19 +44,22 @@ export default class ItemsListComponent extends Component {
 
   _listSeparator = () => <View style={{height: 10}} />;
   _footerComponent = () => (
-    <View style={[styles.item, {marginVertical: 10}]}>
-      <View style={styles.imageCont}>
-        <Image source={this.state.deliveryImage} style={styles.image} />
+    <>
+      <View style={{height: 0.5, width: '80%', backgroundColor: '#e3e3e3', marginVertical: 10, alignSelf: 'center'}} />
+      <View style={[styles.item, {marginVertical: 10}]}>
+        <View style={styles.imageCont}>
+          <Image source={this.state.deliveryImage} style={styles.image} />
+        </View>
+        <View style={styles.footerCont}>
+          <Text style={styles.footerTitle}> {'التوصيل'} </Text>
+          <Text style={styles.footerDesc}>
+            {' '}
+            {'التوصيل للمنزل له سعر $10.00'}{' '}
+          </Text>
+        </View>
+        {/* <Text style={styles.price}> {'$60.00'} </Text> */}
       </View>
-      <View style={styles.footerCont}>
-        <Text style={styles.footerTitle}> {'التوصيل'} </Text>
-        <Text style={styles.footerDesc}>
-          {' '}
-          {'التوصيل للمنزل له سعر $10.00'}{' '}
-        </Text>
-      </View>
-      {/* <Text style={styles.price}> {'$60.00'} </Text> */}
-    </View>
+    </>
   );
 
   render() {

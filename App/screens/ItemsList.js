@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   Pressable,
+  StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ItemsListComponent from '../components/ItemsListComponent';
@@ -21,6 +22,7 @@ export default class ItemsList extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <StatusBar backgroundColor="#e57373"/>
         <View style={styles.header}>
           <ItemsListComponent
             navigation={this.props.navigation}
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
+    marginTop: 10,
     width: '90%',
   },
   priceCont: {
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 60,
     flexDirection: 'row',
-    backgroundColor: 'grey',
+    backgroundColor: '#e57373',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 30,
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
   btnText: {
     fontFamily: 'Tajawal-Bold',
     fontSize: 16,
-    color: '#000',
+    color: '#e3e3e3',
   },
   footer: {
     height: '20%',

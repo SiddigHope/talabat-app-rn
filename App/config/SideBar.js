@@ -21,9 +21,10 @@ const {width, height} = Dimensions.get('window');
 
 export default SideBar = props => {
   return (
-    <ScrollView style={{backgroundColor: '#eee'}}>
+    <ScrollView style={{backgroundColor: '#e57373'}}>
+
       <View style={styles.closeCont}>
-        <Icon name="close" color="grey" size={30} />
+        <Icon name="close" color="#FFF" size={30} />
       </View>
       <Pressable
         onPress={() =>
@@ -43,7 +44,7 @@ export default SideBar = props => {
               <Text style={styles.signText}> {'تسجيل الدخول'} </Text>
               <Text style={styles.profileText}> {'الملف الشخصي'} </Text>
             </View>
-            <Icon name="power" size={30} />
+            <Icon name="power" color="#bdbdbd" size={30} />
           </View>
         </View>
       </Pressable>
@@ -59,7 +60,7 @@ export default SideBar = props => {
                   })
                 }
                 style={styles.btnContainer}>
-                <Icon3 name="clipboard-list" color="grey" size={20} />
+                <Icon3 name="clipboard-list" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'القائمة'} </Text>
               </TouchableOpacity>
             </Body>
@@ -68,7 +69,7 @@ export default SideBar = props => {
           <ListItem noBorder>
             <Body>
               <TouchableOpacity style={styles.btnContainer}>
-                <Icon2 name="md-cart-outline" color="grey" size={20} />
+                <Icon2 name="md-cart-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'مشترياتي'} </Text>
                 <View style={styles.notificationNumberCont}>
                   <Text style={{fontFamily: 'Tajawal-Regular'}}>{'1'}</Text>
@@ -86,7 +87,7 @@ export default SideBar = props => {
                   })
                 }
                 style={styles.btnContainer}>
-                <Icon2 name="ios-time-outline" color="grey" size={20} />
+                <Icon2 name="ios-time-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'حجز طلب'} </Text>
                 <View style={styles.notificationNumberCont}>
                   <Text style={{fontFamily: 'Tajawal-Regular'}}>{'1'}</Text>
@@ -98,7 +99,7 @@ export default SideBar = props => {
           <ListItem noBorder>
             <Body>
               <TouchableOpacity style={styles.btnContainer}>
-                <Icon name="heart-outline" color="grey" size={20} />
+                <Icon name="heart-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'المفضل'} </Text>
               </TouchableOpacity>
             </Body>
@@ -107,7 +108,7 @@ export default SideBar = props => {
           <ListItem noBorder>
             <Body>
               <TouchableOpacity style={styles.btnContainer}>
-                <Icon name="information-outline" color="grey" size={20} />
+                <Icon name="information-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'عنا'} </Text>
               </TouchableOpacity>
             </Body>
@@ -116,7 +117,7 @@ export default SideBar = props => {
           <ListItem noBorder>
             <Body>
               <TouchableOpacity style={styles.btnContainer}>
-                <Icon4 name="hand-stop-o" color="grey" size={20} />
+                <Icon4 name="hand-stop-o" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'الخصوصية'} </Text>
               </TouchableOpacity>
             </Body>
@@ -131,7 +132,7 @@ export default SideBar = props => {
         }
         style={styles.delivery}>
         <View style={styles.deliverySignIcon}>
-          <Icon5 name="login" size={30} />
+          <Icon5 name="login" color="#e3e3e3" size={30} />
         </View>
         <Text style={styles.deliverySignText}>{'تسجيل الدخول كفتي توصيل'}</Text>
       </Pressable>
@@ -180,14 +181,14 @@ const styles = StyleSheet.create({
   signText: {
     flex: 1,
     textAlignVertical: 'center',
-    color: '#333',
+    color: '#e3e3e3',
     fontFamily: 'Tajawal-Bold',
     fontSize: 18,
   },
   profileText: {
     flex: 1,
     textAlignVertical: 'center',
-    color: 'grey',
+    color: '#bdbdbd',
     fontFamily: 'Tajawal-Regular',
     fontSize: 14,
   },
@@ -214,6 +215,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     flex: 1,
+    color: '#e3e3e3',
     fontSize: 15,
     textAlign: 'left',
     marginLeft: 10,
@@ -244,12 +246,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // backgroundColor: 'green',
     borderWidth: 0.5,
-    borderColor: '#333',
+    borderColor: '#e3e3e3',
   },
   deliverySignText: {
     // flex: 1,
     // backgroundColor: 'red',
     textAlign: 'left',
+    color:'#e3e3e3',
     marginLeft: 15,
     fontFamily: 'Tajawal-Bold',
   },

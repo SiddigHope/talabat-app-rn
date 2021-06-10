@@ -25,6 +25,7 @@ import _ from 'lodash';
 import SideBar from '../config/SideBar';
 import CategoryItem from '../components/CategoryItem';
 import MenuItemsList from '../components/MenuItemsList';
+import CarouselBanner from '../components/CarouselBanner';
 
 const {width, height} = Dimensions.get('window');
 
@@ -99,7 +100,7 @@ class Home extends Component {
     };
   }
 
-  renderTabBar = props => {
+  renderTabBar = (props) => {
     props.tabStyle = Object.create(props.tabStyle);
     return <DefaultTabBar {...props} />;
   };
@@ -111,11 +112,6 @@ class Home extends Component {
   openDrawer() {
     this.drawer._root.open();
   }
-
-  _renderItem = (item, index) => {
-    console.log(item);
-    return <CategoryItem item={item} />;
-  };
 
   _listHeader = () => {
     return <View style={{width: 20}} />;
@@ -129,7 +125,8 @@ class Home extends Component {
       <View style={styles.scrollContainer}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.scrollView}>
+          contentContainerStyle={styles.scrollView}
+        >
           {/* Hedding title ( app name and describtion) */}
           <View style={styles.textTitle}>
             <Text style={styles.title}> {'Hommies'} </Text>
@@ -138,16 +135,8 @@ class Home extends Component {
 
           {/* App categories part ( resturant branches ) */}
 
-          <View style={{height: (height * 20) / 100}}>
-            <FlatList
-              data={this.state.category}
-              keyExtractor={(item, index) => index.toString()}
-              showsHorizontalScrollIndicator={false}
-              horizontal
-              ListHeaderComponent={this._listHeader}
-              ListFooterComponent={this._listFooter}
-              renderItem={this._renderItem}
-            />
+          <View style={{ height: 150}}>
+            {/* <CarouselBanner navigation={this.props.navigation} /> */}
           </View>
 
           {/* categories menu items ( branches menu items ) */}
@@ -167,11 +156,12 @@ class Home extends Component {
       <Drawer
         side="left"
         openDrawerOffset={0}
-        ref={ref => {
+        ref={(ref) => {
           this.drawer = ref;
         }}
         content={<SideBar navigator={this.props.navigation} />}
-        onClose={() => this.closeDrawer()}>
+        onClose={() => this.closeDrawer()}
+      >
         <View style={styles.container}>
           {/* Header part ( menu icon and profile icon ) */}
           <Header
@@ -182,22 +172,25 @@ class Home extends Component {
               paddingLeft: 0,
               paddingRight: 0,
             }}
-            androidStatusBarColor="#333">
+            androidStatusBarColor="#333"
+          >
             <Left style={{flexDirection: 'row', flex: 1}}>
               <TouchableOpacity
                 onPress={() => this.openDrawer()}
-                style={{height: '100%'}}>
-                <Icon name="menu" size={25} color="#333" />
+                style={{height: '100%'}}
+              >
+                <Icon name="menu" size={25} color="#e57373" />
               </TouchableOpacity>
             </Left>
             <Right>
               <View
                 style={{
-                  backgroundColor: 'grey',
+                  backgroundColor: '#e3e3e3',
                   padding: 5,
                   borderRadius: 20,
-                }}>
-                <Icon name="account-circle" size={25} />
+                }}
+              >
+                <Icon name="account-circle" color='#e57373' size={25} />
               </View>
             </Right>
           </Header>
@@ -205,13 +198,15 @@ class Home extends Component {
           {this.container()}
           <Pressable
             onPress={() => this.props.navigation.navigate('ItemsList')}
-            style={styles.footer}>
+            style={styles.footer}
+          >
             <Text
               style={{
                 fontFamily: 'Tajawal-Bold',
                 color: '#e3e3e3',
                 fontSize: 18,
-              }}>
+              }}
+            >
               {'السلة'}
             </Text>
             <Image
@@ -220,10 +215,10 @@ class Home extends Component {
             />
             <View style={{flexDirection: 'row'}}>
               <View style={styles.radiusCont}>
-                <Text> 1 </Text>
+                <Text style={{color: '#e57373'}}> 1 </Text>
               </View>
               <View style={styles.radiusCont}>
-                <Icon2 name="chevron-forward" size={25} />
+                <Icon2 name="chevron-forward" color="#e57373" size={25} />
               </View>
             </View>
           </Pressable>
@@ -273,7 +268,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginVertical: 5,
     marginHorizontal: 20,
-    color: '#4444',
+    color: '#e57373',
     fontFamily: 'Tajawal-Regular',
   },
   footer: {

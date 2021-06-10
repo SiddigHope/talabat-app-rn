@@ -120,10 +120,10 @@ function Stacks() {
         options={{
           title: 'السلة',
           headerStyle: {
-            backgroundColor: '#FFF',
+            backgroundColor: '#e57373',
             elevation: 0,
           },
-          headerTintColor: '#333',
+          headerTintColor: '#e3e3e3',
           headerTitleStyle: {
             alignSelf: 'flex-start',
             fontFamily: 'Tajawal-Bold',
@@ -133,7 +133,7 @@ function Stacks() {
             <Icon
               name="chevron-back"
               style={{marginLeft: 10}}
-              color="#333"
+              color="#e3e3e3"
               size={30}
             />
           ),
