@@ -4,7 +4,7 @@
             "outputFile": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/home/siddig/.gradle/caches/transforms-2/files-2.1/d14dbad7340cad958a2e361a440b498d/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/home/siddig/.gradle/caches/transforms-2/files-2.1/93e99cc524f9e4f775937ead40ad032e/appcompat-1.2.0/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -12,6 +12,24 @@
                         "endLines": "6",
                         "endColumns": "13",
                         "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "825",
+                        "endLines": "21",
+                        "endColumns": "13",
+                        "endOffsets": "1097"
+                    }
+                },
+                {
+                    "source": "/home/siddig/.gradle/caches/transforms-2/files-2.1/61e841a9f422149f7cc0b508a6d03815/jetified-paytabs_sdk/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,103,151,195,246,292,341,400,457,512,572,633,688,734,779",
+                        "endColumns": "47,47,43,50,45,48,58,56,54,59,60,54,45,44,45",
+                        "endOffsets": "98,146,190,241,287,336,395,452,507,567,628,683,729,774,820"
                     }
                 }
             ]

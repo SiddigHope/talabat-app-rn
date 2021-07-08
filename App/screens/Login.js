@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react';
 import {
   View,
@@ -7,8 +8,12 @@ import {
   TextInput,
   Pressable,
   Image,
+  ToastAndroid,
   ActivityIndicator,
 } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import jwt_decode from 'jwt-decode';
+import messaging from '@react-native-firebase/messaging';
 
 const {width, height} = Dimensions.get('window');
 
@@ -21,6 +26,82 @@ export default class Login extends Component {
       activityIndicator: false,
     };
   }
+
+  insertToken = async (user) => {
+    const token = await messaging().getToken();
+    console.log(user.user);
+    let requestOptions = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        token,
+      }),
+    };
+    try {
+      fetch(
+        `http://192.168.43.148:1337/users/${user.user.id}`,
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          AsyncStorage.setItem('talabat-user', JSON.stringify(data));
+          this.props.navigation.navigate('ChooseBranch');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  login = async () => {
+    const {phone, password} = this.state;
+    if (phone != '' && password != '') {
+      try {
+        RNFetchBlob.fetch(
+          'POST',
+          'http://192.168.43.148:1337/auth/local',
+          {
+            // Authorization: "Bearer access-token",
+            // otherHeader: "foo",
+            'Content-Type': 'application/json',
+          },
+          [
+            // to send data
+            {
+              name: 'identifier',
+              data: String('a_' + this.state.phone + '@email.com'),
+            },
+            {name: 'password', data: String(this.state.password)},
+          ]
+        )
+          .then((resp) => {
+            let data = [];
+            if (resp.data.includes('{')) {
+              data = JSON.parse(resp.data);
+            } else {
+              data = jwt_decode(resp.data, {header: true});
+            }
+            if (data.error) {
+              console.log(resp.data);
+            } else {
+              this.insertToken(data);
+              // AsyncStorage.setItem('talabat-user', JSON.stringify(data));
+              // this.props.navigation.navigate('ChooseBranch');
+            }
+          })
+          .catch((err) => {
+            console.log('error response');
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      ToastAndroid.show('Please fill all infos', ToastAndroid.LONG);
+    }
+  };
 
   render() {
     return (
@@ -41,23 +122,24 @@ export default class Login extends Component {
               blurOnSubmit={false}
               placeholder={'رقم الهاتف'}
               onSubmitEditing={() => this.password.focus()}
-              onChangeText={phone => this.setState({phone})}
+              onChangeText={(phone) => this.setState({phone})}
             />
             <TextInput
-              ref={input => (this.password = input)}
+              ref={(input) => (this.password = input)}
               textAlign="right"
               placeholder={'كلمة المرور'}
               secureTextEntry
               style={[styles.textInput]}
-              onChangeText={password => this.setState({password})}
+              onChangeText={(password) => this.setState({password})}
             />
             <Text
               onPress={() => this.props.navigation.navigate('ForgetPassword')}
-              style={{fontFamily: 'Tajawal-Regular', marginHorizontal: 10}}>
+              style={{fontFamily: 'Tajawal-Regular', marginHorizontal: 10}}
+            >
               {'نسيت كلمة المرور ؟'}
             </Text>
           </View>
-          <Pressable style={styles.btn}>
+          <Pressable onPress={() => this.login()} style={styles.btn}>
             <Text style={styles.btnText}> {'تسجيل الدخول'} </Text>
           </Pressable>
         </View>
@@ -70,7 +152,8 @@ export default class Login extends Component {
               justifyContent: 'center',
               flex: 1,
             }}
-            onPress={() => this.props.navigation.navigate('Signup')}>
+            onPress={() => this.props.navigation.navigate('Signup')}
+          >
             <Text style={{fontFamily: 'Tajawal-Regular', color: '#dbdbdb'}}>
               {' '}
               {'ليس لديك حساب؟'}{' '}

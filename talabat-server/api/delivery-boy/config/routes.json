@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/delivery-boys",
+      "handler": "delivery-boy.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/delivery-boys/count",
+      "handler": "delivery-boy.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/delivery-boys/:id",
+      "handler": "delivery-boy.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/delivery-boys",
+      "handler": "delivery-boy.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/delivery-boys/:id",
+      "handler": "delivery-boy.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/delivery-boys/:id",
+      "handler": "delivery-boy.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -11,28 +11,124 @@ import {
 } from 'react-native';
 import RadioButtonRN from 'radio-buttons-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import RNFetchBlob from 'rn-fetch-blob';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {setBranch} from '../config/var';
+import jwt_decode from 'jwt-decode';
 
 const {width, height} = Dimensions.get('window');
 
 const branch = [
   {
-    label: 'فرع الخرطوم',
-    value: 'female',
+    label: 'فرع 1',
+    value: '1',
   },
   {
-    label: 'فرع بحري',
-    value: 'male',
+    label: '2 فرع',
+    value: '2',
   },
 ];
+
 export default class ChooseBranch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone: '',
-      password: '',
+      branch: '1',
       activityIndicator: false,
+      data: branch,
+      branchAdmin: [],
     };
   }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = async () => {
+    try {
+      RNFetchBlob.fetch('GET', 'http://192.168.43.148:1337/branches', {
+        // Authorization: "Bearer access-token",
+        // otherHeader: "foo",
+        'Content-Type': 'application/json',
+      })
+        .then((resp) => {
+          // console.log(resp.data);
+          let data = [];
+          if (resp.data.includes('{')) {
+            data = JSON.parse(resp.data);
+          } else {
+            data = jwt_decode(resp.data, {header: true});
+          }
+          if (data.error) {
+            console.log(resp.data);
+          } else {
+            // this.setState({
+            //   data,
+            // });
+            this.setArray(data);
+            this.getAdmins();
+          }
+        })
+        .catch((err) => {
+          console.log('error response');
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getAdmins = async () => {
+    try {
+      RNFetchBlob.fetch('GET', 'http://192.168.43.148:1337/branch-admins', {
+        // Authorization: "Bearer access-token",
+        // otherHeader: "foo",
+        'Content-Type': 'application/json',
+      })
+        .then((resp) => {
+          // console.log(resp.data);
+          let data = [];
+          if (resp.data.includes('{')) {
+            data = JSON.parse(resp.data);
+          } else {
+            data = jwt_decode(resp.data, {header: true});
+          }
+          if (data.error) {
+            console.log(resp.data);
+          } else {
+            // this.setState({
+            //   data,
+            // });
+            // console.log(data);
+            AsyncStorage.setItem('talabat-branch-admins', JSON.stringify(data))
+          }
+        })
+        .catch((err) => {
+          console.log('error response');
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  setArray = async (items) => {
+    const data = [];
+    items.forEach((element) => {
+      // console.log(element)
+      data.push({label: element.name, value: element.id});
+      this.setState({data});
+    });
+    AsyncStorage.setItem('branches', JSON.stringify(data), (err) => {
+      if (err) {
+        // console.log("an error");
+        throw err;
+      }
+      // console.log("success");
+    }).catch((err) => {
+      console.log('error is: ' + err);
+    });
+  };
 
   render() {
     return (
@@ -43,7 +139,8 @@ export default class ChooseBranch extends Component {
               height: '70%',
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <View style={styles.imageCont}>
               <Image
                 source={require('../assets/cafe.jpg')}
@@ -53,7 +150,6 @@ export default class ChooseBranch extends Component {
 
             <View style={styles.inputCont}>
               <Text
-                onPress={() => this.props.navigation.navigate('ForgetPassword')}
                 style={{
                   width: '90%',
                   marginBottom: 5,
@@ -61,26 +157,30 @@ export default class ChooseBranch extends Component {
                   fontFamily: 'Tajawal-Bold',
                   marginHorizontal: 10,
                   fontSize: 16,
-                }}>
+                }}
+              >
                 {'اختر الفرع'}
               </Text>
               <RadioButtonRN
-                selectedBtn={agreement =>
+                selectedBtn={(branch) => {
                   this.setState({
-                    agreement: agreement.value,
-                    showReason: agreement.value,
-                  })
-                }
+                    branch: branch.value,
+                  });
+                }}
                 style={{flexDirection: 'row'}}
                 boxStyle={styles.boxStyle}
                 textStyle={{marginHorizontal: 3, fontFamily: 'Tajawal-Regular'}}
                 initial={1}
-                data={branch}
+                data={this.state.data}
                 icon={<Icon name="check-circle" size={25} color="#e57373" />}
               />
               <Pressable
-                onPress={() => this.props.navigation.navigate('Home')}
-                style={styles.btn}>
+                onPress={() => {
+                  setBranch(this.state.branch);
+                  this.props.navigation.navigate('Home');
+                }}
+                style={styles.btn}
+              >
                 <Text style={styles.btnText}> {'تصفح الاصناف'} </Text>
               </Pressable>
             </View>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="wocr_is_tablet">true</bool>
+    <color name="wocr_primary">@android:color/transparent</color>
+    <color name="wocr_primary_dark">#000000</color>
+    <color name="wocr_tablet_screen_bg">#BB000000</color>
     <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">80dp</dimen>
     <dimen name="abc_action_bar_default_height_material">64dp</dimen>
@@ -24,4 +28,10 @@
     <item name="tabGravity">center</item>
     <item name="tabMode">fixed</item>
   </style>
+    <style name="wocr_RecognizerTheme" parent="wocr_RecognizerTheme.TransparentStatusBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/wocr_tablet_screen_bg</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

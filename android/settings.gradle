@@ -1,3 +1,5 @@
 rootProject.name = 'talabatApp'
+include ':@paytabs_react-native-paytabs'
+project(':@paytabs_react-native-paytabs').projectDir = new File(rootProject.projectDir, '../node_modules/@paytabs/react-native-paytabs/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

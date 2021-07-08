@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_infos",
+  "info": {
+    "name": "paymentInfo"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profileId": {
+      "type": "string",
+      "required": true
+    },
+    "serverKey": {
+      "type": "string",
+      "required": true
+    },
+    "clientKey": {
+      "type": "string",
+      "required": true
+    },
+    "cardId": {
+      "type": "integer",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "required": true
+    },
+    "countryCode": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

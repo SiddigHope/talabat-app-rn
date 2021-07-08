@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react';
 import {
   View,
@@ -8,7 +9,10 @@ import {
   Pressable,
   Image,
   ActivityIndicator,
+  ToastAndroid
 } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import messaging from '@react-native-firebase/messaging';
 
 const {width, height} = Dimensions.get('window');
 
@@ -21,6 +25,73 @@ export default class DeliveryLogin extends Component {
       activityIndicator: false,
     };
   }
+
+  insertToken = async (user) => {
+    const token = await messaging().getToken();
+    // console.log(user[0].id);
+    let requestOptions = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        token,
+      }),
+    };
+    try {
+      fetch(
+        `http://192.168.43.148:1337/delivery-boys/${user[0].id}`,
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          AsyncStorage.setItem('talabat-delivery', JSON.stringify(data));
+          this.props.navigation.navigate('HomeDelivery');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  login = async () => {
+    const {phone, password} = this.state;
+    if (phone != '' && password != '') {
+      try {
+        RNFetchBlob.fetch(
+          'GET',
+          `http://192.168.43.148:1337/delivery-boys?phone=${phone}&password=${password}`,
+          {
+            // Authorization: "Bearer access-token",
+            // otherHeader: "foo",
+            'Content-Type': 'application/json',
+          }
+        )
+          .then((resp) => {
+            console.log(resp.json());
+            const data = resp.json();
+            if (data.error) {
+              console.log(resp.data);
+            } else if (data.length == 0) {
+              ToastAndroid.show('Please enter a valid user info', ToastAndroid.LONG);
+            } else {
+              this.insertToken(data)
+              // AsyncStorage.setItem('talabat-delivery', JSON.stringify(data));
+              // this.props.navigation.navigate('HomeDelivery');
+            }
+          })
+          .catch((err) => {
+            console.log('error response');
+            console.log(err);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      ToastAndroid.show('Please fill all infos', ToastAndroid.LONG);
+    }
+  };
 
   render() {
     return (
@@ -53,7 +124,7 @@ export default class DeliveryLogin extends Component {
               onChangeText={password => this.setState({password})}
             />
           </View>
-          <Pressable style={styles.btn}>
+          <Pressable onPress={() => this.login()} style={styles.btn}>
             <Text style={styles.btnText}> {'تسجيل الدخول'} </Text>
           </Pressable>
         </View>

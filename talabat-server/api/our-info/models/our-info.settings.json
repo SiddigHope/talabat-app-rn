@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_infos",
+  "info": {
+    "name": "ourInfo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "about": {
+      "type": "text"
+    },
+    "privacy": {
+      "type": "text",
+      "unique": true
+    }
+  }
+}

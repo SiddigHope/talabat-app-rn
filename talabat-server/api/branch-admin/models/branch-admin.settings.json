@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "BranchAdmins",
+  "info": {
+    "name": "branchAdmin",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "integer",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "branch": {
+      "model": "branch"
+    },
+    "token": {
+      "type": "text"
+    }
+  }
+}
