@@ -1,3 +1,4 @@
+import { Item } from 'native-base';
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 
@@ -14,7 +15,7 @@ export default class CarouselComponent extends Component {
         const image = Number(this.props.index) % 2 == 0 ? require('../assets/banner2.jpg') : require('../assets/banner.jpg')
         return (
             <View style={styles.container}>
-                <Image source={image} style={styles.banner} />
+                <Image source={{uri: "http://192.168.43.148:1337" + this.props.item.image.url}} style={styles.banner} />
                 {/* <View style={styles.avatarContainer}>
                     <Image source={require("../assets/the-red-cafe.png")} style={styles.avatar} />
                 </View> */}

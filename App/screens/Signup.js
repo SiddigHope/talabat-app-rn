@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {Component} from 'react';
 import {
   View,
@@ -8,7 +9,10 @@ import {
   Pressable,
   Image,
   ActivityIndicator,
+  ToastAndroid,
 } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import messaging from '@react-native-firebase/messaging';
 
 const {width, height} = Dimensions.get('window');
 
@@ -18,9 +22,60 @@ export default class Signup extends Component {
     this.state = {
       phone: '',
       password: '',
+      fullname: '',
+      cpassword: '',
       activityIndicator: false,
     };
   }
+
+  signup = async () => {
+    const {fullname, phone, password, cpassword} = this.state
+    const token = await messaging().getToken();
+    if(fullname != '' && phone != '' && password != ''){
+      if(password == cpassword){
+        try {
+          RNFetchBlob.fetch(
+            'POST',
+            'http://192.168.43.148:1337/auth/local/register',
+            {
+              // Authorization: "Bearer access-token",
+              // otherHeader: "foo",
+              'Content-Type': 'application/json',
+            },
+            [
+              // to send data
+              {name: 'username', data: String(this.state.fullname)},
+              {name: 'email', data: String("a_"+this.state.phone+"@email.com")},
+              {name: 'password', data: String(this.state.password)},
+              {name: 'phone', data: String(this.state.phone)},
+              {name: 'token', data: String(token)},
+            ]
+          )
+            .then((resp) => {
+              console.log(resp.json());
+              const data = resp.json();
+              if (data.error) {
+                console.log(resp.data);
+              } else {
+                // console.log(data)
+                AsyncStorage.setItem('talabat-user', JSON.stringify(data.user))
+                this.props.navigation.navigate('ChooseBranch')
+              }
+            })
+            .catch((err) => {
+              console.log('error response');
+              console.log(err);
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      }else{
+        ToastAndroid.show('Password does not match',ToastAndroid.LONG)
+      }
+    }else{
+      ToastAndroid.show('Please fill all infos',ToastAndroid.LONG)
+    }
+  };
 
   render() {
     return (
@@ -33,36 +88,38 @@ export default class Signup extends Component {
               style={styles.textInput}
               blurOnSubmit={false}
               placeholder={'الاسم كاملا'}
-              onSubmitEditing={() => this.password.focus()}
-              onChangeText={fullname => this.setState({fullname})}
+              onSubmitEditing={() => this.phone.focus()}
+              onChangeText={(fullname) => this.setState({fullname})}
             />
             <TextInput
+              ref={(input) => (this.phone = input)}
               textAlign="right"
               keyboardType="phone-pad"
               style={styles.textInput}
               blurOnSubmit={false}
               placeholder={'رقم الهاتف'}
               onSubmitEditing={() => this.password.focus()}
-              onChangeText={phone => this.setState({phone})}
+              onChangeText={(phone) => this.setState({phone})}
             />
             <TextInput
-              ref={input => (this.password = input)}
+              ref={(input) => (this.password = input)}
               textAlign="right"
               placeholder={'كلمة المرور'}
               secureTextEntry
+              onSubmitEditing={() => this.cpassword.focus()}
               style={[styles.textInput]}
-              onChangeText={password => this.setState({password})}
+              onChangeText={(password) => this.setState({password})}
             />
             <TextInput
-              ref={input => (this.password = input)}
+              ref={(input) => (this.cpassword = input)}
               textAlign="right"
               placeholder={'تأكيد كلمة المرور'}
               secureTextEntry
               style={[styles.textInput]}
-              onChangeText={cpassword => this.setState({cpassword})}
+              onChangeText={(cpassword) => this.setState({cpassword})}
             />
           </View>
-          <Pressable style={styles.btn}>
+          <Pressable onPress={() => this.signup()} style={styles.btn}>
             <Text style={styles.btnText}> {'تسجيل الدخول'} </Text>
           </Pressable>
         </View>
@@ -75,7 +132,8 @@ export default class Signup extends Component {
               justifyContent: 'center',
               flex: 1,
             }}
-            onPress={() => this.props.navigation.navigate('Login')}>
+            onPress={() => this.props.navigation.navigate('Login')}
+          >
             <Text style={{fontFamily: 'Tajawal-Regular', color: '#dbdbdb'}}>
               {' '}
               {'سجل دخول الأن'}{' '}

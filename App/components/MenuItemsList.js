@@ -24,7 +24,7 @@ export default class MenuItemsList extends Component {
           this.props.navigation.navigate('ShowItem', {item: item.item});
         }}
         style={styles.item}>
-        <Image style={styles.image} source={item.item.image} />
+        <Image style={styles.image} source={{uri:"http://192.168.43.148:1337"+item.item.image.url}} />
         <View
           style={{
             flexDirection: 'row',
@@ -37,11 +37,11 @@ export default class MenuItemsList extends Component {
           </Text>
           <Text numberOfLines={1} style={styles.title}>
             {' '}
-            {item.item.title}{' '}
+            {item.item.name}{' '}
           </Text>
         </View>
         <Text numberOfLines={2} style={styles.dec}>
-          {item.item.desc}
+          {item.item.description}
         </Text>
       </Pressable>
     );

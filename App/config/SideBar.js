@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   Dimensions,
   Pressable,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/Ionicons';
@@ -16,63 +17,120 @@ import Icon4 from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/AntDesign';
 import {List, ListItem, Right, Body} from 'native-base';
 import _ from 'lodash';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import RNFetchBlob from 'rn-fetch-blob';
+import RNRestart from 'react-native-restart';
 
 const {width, height} = Dimensions.get('window');
 
-export default SideBar = props => {
+export default SideBar = (props) => {
+  const [user, setUser] = useState(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    getUser();
+  }, [props.user]);
+
+  const getUser = async () => {
+    setUser(props.user);
+  };
+
+  const logout = () => {
+    Alert.alert(
+      'Talabat App',
+      'Do you want to logout ? ',
+      [
+        {
+          text: 'No',
+          onPress: () => console.log('do not want to logout'),
+          style: 'cancel',
+        },
+        {
+          text: 'Yes',
+          onPress: () => {
+            AsyncStorage.removeItem('talabat-user');
+            AsyncStorage.removeItem('cart');
+            props.getUser();
+            RNRestart.Restart();
+            // props.navigator.navigate('Login');
+          },
+        },
+      ],
+      {cancelable: false}
+    );
+  };
+
   return (
     <ScrollView style={{backgroundColor: '#e57373'}}>
-
       <View style={styles.closeCont}>
         <Icon name="close" color="#FFF" size={30} />
       </View>
       <Pressable
-        onPress={() =>
-          props.navigator.navigate('Login', {
-            navigation: props.navigator,
-          })
-        }>
+        onPress={() => {
+          props.user.length != 0
+            ? logout()
+            : props.navigator.navigate('Login', {
+                navigation: props.navigator,
+              });
+        }}
+      >
         <View style={styles.headerView}>
           <View style={styles.headerCont}>
             <View style={styles.avatarCont}>
               <Image
                 style={styles.avatar}
-                source={require('../assets/400.jpeg')}
+                source={require('../../assets/images/302-3022217_roger-berry-avatar-placeholder.png')}
               />
             </View>
             <View style={styles.textCont}>
-              <Text style={styles.signText}> {'تسجيل الدخول'} </Text>
-              <Text style={styles.profileText}> {'الملف الشخصي'} </Text>
+              <Text style={styles.signText}>
+                {props.user.length != 0 ? props.user.username : 'تسجيل الدخول'}
+              </Text>
+              <Text style={styles.profileText}>
+                {props.user.length != 0 ? props.user.phone : 'الملف الشخصي'}
+              </Text>
             </View>
-            <Icon name="power" color="#bdbdbd" size={30} />
+            <Pressable>
+              <Icon name="power" color="#bdbdbd" size={30} />
+            </Pressable>
           </View>
         </View>
       </Pressable>
 
       <View style={styles.container}>
         <List showsVerticalScrollIndicator={false}>
-          <ListItem noBorder>
+          {/* <ListItem noBorder>
             <Body>
               <TouchableOpacity
                 onPress={() =>
-                  props.navigator.navigate('Profile', {
+                  props.navigator.navigate('Home', {
                     navigation: props.navigator,
                   })
                 }
-                style={styles.btnContainer}>
+                style={styles.btnContainer}
+              >
                 <Icon3 name="clipboard-list" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'القائمة'} </Text>
               </TouchableOpacity>
             </Body>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem noBorder>
             <Body>
-              <TouchableOpacity style={styles.btnContainer}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigator.navigate('ItemsList', {
+                    navigation: props.navigator,
+                  })
+                }
+                style={styles.btnContainer}
+              >
                 <Icon2 name="md-cart-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'مشترياتي'} </Text>
                 <View style={styles.notificationNumberCont}>
-                  <Text style={{fontFamily: 'Tajawal-Regular'}}>{'1'}</Text>
+                  <Text style={{fontFamily: 'Tajawal-Regular'}}>
+                    {props.user.length != 0 ? props.cartCount : '0'}
+                  </Text>
                 </View>
               </TouchableOpacity>
             </Body>
@@ -82,15 +140,19 @@ export default SideBar = props => {
             <Body>
               <TouchableOpacity
                 onPress={() =>
-                  props.navigator.navigate('ParticipationOptions', {
+                  props.navigator.navigate('MyOrders', {
+                    id: props.user.length != 0 ? props.user.id : '0',
                     navigation: props.navigator,
                   })
                 }
-                style={styles.btnContainer}>
+                style={styles.btnContainer}
+              >
                 <Icon2 name="ios-time-outline" color="#bdbdbd" size={20} />
-                <Text style={styles.btnText}> {'حجز طلب'} </Text>
+                <Text style={styles.btnText}> {'طلباتي'} </Text>
                 <View style={styles.notificationNumberCont}>
-                  <Text style={{fontFamily: 'Tajawal-Regular'}}>{'1'}</Text>
+                  <Text style={{fontFamily: 'Tajawal-Regular'}}>
+                    {props.ordersCount}
+                  </Text>
                 </View>
               </TouchableOpacity>
             </Body>
@@ -98,7 +160,16 @@ export default SideBar = props => {
 
           <ListItem noBorder>
             <Body>
-              <TouchableOpacity style={styles.btnContainer}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigator.navigate('MyFav', {
+                    id: props.user.length != 0 ? props.user.id : '0',
+                    navigation: props.navigator,
+                    data:props.fav
+                  })
+                }
+                style={styles.btnContainer}
+              >
                 <Icon name="heart-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'المفضل'} </Text>
               </TouchableOpacity>
@@ -107,7 +178,15 @@ export default SideBar = props => {
 
           <ListItem noBorder>
             <Body>
-              <TouchableOpacity style={styles.btnContainer}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigator.navigate('About', {
+                    id: props.user.length != 0 ? props.user.id : '0',
+                    navigation: props.navigator,
+                  })
+                }
+                style={styles.btnContainer}
+              >
                 <Icon name="information-outline" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'عنا'} </Text>
               </TouchableOpacity>
@@ -116,7 +195,15 @@ export default SideBar = props => {
 
           <ListItem noBorder>
             <Body>
-              <TouchableOpacity style={styles.btnContainer}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigator.navigate('Privacy', {
+                    id: props.user.length != 0 ? props.user.id : '0',
+                    navigation: props.navigator,
+                  })
+                }
+                style={styles.btnContainer}
+              >
                 <Icon4 name="hand-stop-o" color="#bdbdbd" size={20} />
                 <Text style={styles.btnText}> {'الخصوصية'} </Text>
               </TouchableOpacity>
@@ -124,18 +211,23 @@ export default SideBar = props => {
           </ListItem>
         </List>
       </View>
-      <Pressable
-        onPress={() =>
-          props.navigator.navigate('DeliveryLogin', {
-            navigation: props.navigator,
-          })
-        }
-        style={styles.delivery}>
-        <View style={styles.deliverySignIcon}>
-          <Icon5 name="login" color="#e3e3e3" size={30} />
-        </View>
-        <Text style={styles.deliverySignText}>{'تسجيل الدخول كفتي توصيل'}</Text>
-      </Pressable>
+      {props.user.length != 0 ? null : (
+        <Pressable
+          onPress={() =>
+            props.navigator.navigate('DeliveryLogin', {
+              navigation: props.navigator,
+            })
+          }
+          style={styles.delivery}
+        >
+          <View style={styles.deliverySignIcon}>
+            <Icon5 name="login" color="#e3e3e3" size={30} />
+          </View>
+          <Text style={styles.deliverySignText}>
+            {'تسجيل الدخول كفتي توصيل'}
+          </Text>
+        </Pressable>
+      )}
     </ScrollView>
   );
 };
@@ -252,7 +344,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     // backgroundColor: 'red',
     textAlign: 'left',
-    color:'#e3e3e3',
+    color: '#e3e3e3',
     marginLeft: 15,
     fontFamily: 'Tajawal-Bold',
   },

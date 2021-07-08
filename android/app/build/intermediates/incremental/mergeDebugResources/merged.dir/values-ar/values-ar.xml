@@ -1,32 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"التوجه إلى المنزل"</string>
-    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
-    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"خيارات أكثر"</string>
-    <string msgid="2571498368472823490" name="abc_action_mode_done">"تم"</string>
-    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"عرض الكل"</string>
-    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"اختيار تطبيق"</string>
-    <string msgid="3403923230105792483" name="abc_capital_off">"إيقاف"</string>
-    <string msgid="7831734969929204599" name="abc_capital_on">"تفعيل"</string>
-    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
-    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
-    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"حذف"</string>
-    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
-    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
-    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
-    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
-    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"فضاء"</string>
-    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
-    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"القائمة+"</string>
-    <string msgid="940844115270746197" name="abc_search_hint">"بحث…"</string>
-    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"محو طلب البحث"</string>
-    <string msgid="908784302972860853" name="abc_searchview_description_query">"طلب بحث"</string>
-    <string msgid="5466662225065974044" name="abc_searchview_description_search">"البحث"</string>
-    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"إرسال طلب البحث"</string>
-    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"بحث صوتي"</string>
-    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"مشاركة مع"</string>
-    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"مشاركة مع <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
-    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"تصغير"</string>
-    <string msgid="730395136688082741" name="search_menu_title">"البحث"</string>
-    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"التوجه إلى المنزل"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"خيارات أكثر"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"تم"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"عرض الكل"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"اختيار تطبيق"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"إيقاف"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"تفعيل"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"حذف"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"فضاء"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"القائمة+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"بحث…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"محو طلب البحث"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"طلب بحث"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"البحث"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"إرسال طلب البحث"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"بحث صوتي"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"مشاركة مع"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"مشاركة مع <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"تصغير"</string>
+    <string name="bt_country_code_required">Country code is required</string>
+    <string name="bt_form_hint_country_code">Country Code</string>
+    <string name="bt_form_hint_mobile_number">Mobile Number</string>
+    <string name="bt_mobile_number_required">Mobile number is required</string>
+    <string name="bt_month">Month</string>
+    <string name="bt_postal_code_required">Postal code is required</string>
+    <string name="bt_save_card_checkbox_name">Save card</string>
+    <string name="bt_year">Year</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"تفعيل"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تفعيل خدمات Google Play."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏تفعيل خدمات Google Play"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"تثبيت"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي لا تتوفر على جهازك."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"‏الحصول على خدمات Google Play"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"‏مدى توفّر خدمات Google Play"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"‏خطأ في خدمات Google Play"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"‏لدى <ns1:g id="APP_NAME">%1$s</ns1:g> مشكلة في خدمات Google Play. يُرجى إعادة المحاولة."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play التي لا يوفرها جهازك."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"تحديث"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تحديث خدمات Google Play."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"‏تحديث خدمات Google Play"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي يتم تحديثها حاليًا."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"‏يجب توفر إصدار جديد من خدمات Google Play. سيتم تحديثها تلقائيًا قريبًا."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"فتح على الهاتف"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"تسجل الدخول"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">تاريخ الانتهاء</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"متنوعة"</string>
+    <string name="invalid_shipping_address">عنوان الشحن غير صحيح!</string>
+    <string name="invalid_shipping_city">مدينة الشحن غير صحيح!</string>
+    <string name="invalid_shipping_country">دولة الشحن غير صحيح!"</string>
+    <string name="invalid_shipping_postal">الرمز البريدي للشحن غير صحيح!</string>
+    <string name="invalid_shipping_state">ولاية الشحن غير صحيحة!</string>
+    <string name="make_a_payment">اتمام عملية الدفع</string>
+    <string name="payment_sdk_3d_secure_title">"نظام الأمان الثلاثي الأبعاد"</string>
+    <string name="payment_sdk_apple_pay_error_missing_country_code">"رمز بلد Apple Pay فارغ!"</string>
+    <string name="payment_sdk_apple_pay_error_missing_merchant_identifier">"معرف Apple Pay فارغ!"</string>
+    <string name="payment_sdk_apple_pay_error_unauthorized_networks">"شبكات Apple Pay غير المصرح بها"</string>
+    <string name="payment_sdk_billing_address_city">"مدينة"</string>
+    <string name="payment_sdk_billing_address_country">"بلد"</string>
+    <string name="payment_sdk_billing_address_email">"البريد الإلكتروني"</string>
+    <string name="payment_sdk_billing_address_full_name">"الاسم بالكامل"</string>
+    <string name="payment_sdk_billing_address_phone">"رقم الهاتف"</string>
+    <string name="payment_sdk_billing_address_state">"ولاية"</string>
+    <string name="payment_sdk_billing_address_stree">"شارع"</string>
+    <string name="payment_sdk_billing_address_zip">"الرمز البريدي"</string>
+    <string name="payment_sdk_billing_details">"تفاصيل الفاتورة"</string>
+    <string name="payment_sdk_billing_select_country">"حدد الدولة"</string>
+    <string name="payment_sdk_cancel_alert">هل أنت متأكد من إلغاء عملية الدفع؟</string>
+    <string name="payment_sdk_card_cvv_invalid">غير صالح %s</string>
+    <string name="payment_sdk_card_error_empty_card_number">"رقم البطاقة فارغ!"</string>
+    <string name="payment_sdk_card_error_empty_cid">"CID فارغ!"</string>
+    <string name="payment_sdk_card_error_empty_cvc">"CVC فارغ!"</string>
+    <string name="payment_sdk_card_error_empty_cvn">"CVN فارغ!"</string>
+    <string name="payment_sdk_card_error_empty_cvv">%s فارغ!</string>
+    <string name="payment_sdk_card_error_empty_expiry_date">"تاريخ انتهاء الصلاحية فارغ!"</string>
+    <string name="payment_sdk_card_error_empty_name_on_card">"اسم حامل البطاقة فارغ!"</string>
+    <string name="payment_sdk_card_error_expired_expiry_date">"بطاقة ائتمان منتهية الصلاحية"</string>
+    <string name="payment_sdk_card_error_invalid_card_number">"رقم البطاقة غير صالحة"</string>
+    <string name="payment_sdk_card_error_invalid_cid">"CID غير صالح!"</string>
+    <string name="payment_sdk_card_error_invalid_cvc">"CVC غير صالح!"</string>
+    <string name="payment_sdk_card_error_invalid_cvn">"CVN غير صالح!"</string>
+    <string name="payment_sdk_card_error_invalid_cvv">"CVV غير صالح!"</string>
+    <string name="payment_sdk_card_error_invalid_expiry_date">"تاريخ انتهاء الصلاحية غير صالح"</string>
+    <string name="payment_sdk_card_error_invalid_name_on_card">"اسم حامل البطاقة غير صالح"</string>
+    <string name="payment_sdk_card_expiry_date">"تاريخ الانتهاء"</string>
+    <string name="payment_sdk_card_expiry_date_hint">"شهر / سنة"</string>
+    <string name="payment_sdk_card_name_on_card_hint">"John Smith"</string>
+    <string name="payment_sdk_card_name_on_card_title">"الاسم على البطاقة"</string>
+    <string name="payment_sdk_card_number">"رقم البطاقة"</string>
+    <string name="payment_sdk_card_number_hint">"0000 0000 0000 0000"</string>
+    <string name="payment_sdk_card_pay_button">"دفع"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_dismiss">"ليس الان"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_message">"الرجاء منح الإذن لاستخدام الكاميرا حتى تتمكن من مسح البطاقات ضوئيًا"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_settings">"أفتح الإعدادات"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_title">"ماسح البطاقة"</string>
+    <string name="payment_sdk_card_scanner_line_up_hint">"اصطف البطاقة داخل السطور"</string>
+    <string name="payment_sdk_click_back_again">Please click BACK again to exit.</string>
+    <string name="payment_sdk_confirmation">تأكيد</string>
+    <string name="payment_sdk_credit_card_pay_amount">"القيمة المدفوعة"</string>
+    <string name="payment_sdk_credit_card_screen_dismiss">"إلغاء"</string>
+    <string name="payment_sdk_credit_card_screen_save_card_label">"حفظ معلومات البطاقة. للدفعات المستقبلية"</string>
+    <string name="payment_sdk_credit_card_screen_save_card_mandatory_error">"للمتابعة ، عليك حفظ معلومات البطاقة!"</string>
+    <string name="payment_sdk_credit_card_screen_title">"بطاقة الائتمان"</string>
+    <string name="payment_sdk_edit_billing_info">تعديل بيانات الفاتورة</string>
+    <string name="payment_sdk_edit_shipping_info">تعديل بيانات الشحن</string>
+    <string name="payment_sdk_error_card_scanner_failed">"فشل المسح"</string>
+    <string name="payment_sdk_error_empty_billing_address">"عنوان الفاتورة فارغ!"</string>
+    <string name="payment_sdk_error_empty_billing_city">"مدينة الفواتير فارغة!"</string>
+    <string name="payment_sdk_error_empty_billing_country_code">"رمز بلد إرسال الفواتير فارغ!"</string>
+    <string name="payment_sdk_error_empty_billing_email">"البريد الإلكتروني للفوترة فارغ!"</string>
+    <string name="payment_sdk_error_empty_billing_full_name">"الاسم الكامل للفواتير فارغ!"</string>
+    <string name="payment_sdk_error_empty_billing_phone">"رقم هاتف الفاتورة فارغ!"</string>
+    <string name="payment_sdk_error_empty_billing_state">"ولاية الفواتير فارغة!"</string>
+    <string name="payment_sdk_error_empty_billing_zip_code">"الرمز البريدي للفواتير فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_address">"عنوان الشحن فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_city">"مدينة الشحن فارغة!"</string>
+    <string name="payment_sdk_error_empty_shipping_country_code">"رمز بلد الشحن فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_email">"البريد الإلكتروني للشحن فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_full_name">"اسم الشحن الكامل فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_phone">"رقم هاتف الشحن فارغ!"</string>
+    <string name="payment_sdk_error_empty_shipping_state">"ولاية الشحن فارغة!"</string>
+    <string name="payment_sdk_error_empty_shipping_zip_code">"رمز الشحن البريدي فارغ!"</string>
+    <string name="payment_sdk_error_generic">"هناك خطأ ما!"</string>
+    <string name="payment_sdk_error_invalid_amount">"مبلغ غير صحيح"</string>
+    <string name="payment_sdk_error_invalid_billing_address">"عنوان الفاتورة غير صالح"</string>
+    <string name="payment_sdk_error_invalid_billing_city">"مدينة الفواتير غير صالحة"</string>
+    <string name="payment_sdk_error_invalid_billing_country_code">"رمز بلد إرسال الفواتير غير صالح"</string>
+    <string name="payment_sdk_error_invalid_billing_email">"بريد إلكتروني فوترة غير صالح"</string>
+    <string name="payment_sdk_error_invalid_billing_full_name">"اسم الفاتورة الكامل غير صالح"</string>
+    <string name="payment_sdk_error_invalid_billing_phone">"رقم الفواتير غير صالح"</string>
+    <string name="payment_sdk_error_invalid_billing_state">"ولاية الفواتير غير صالحة"</string>
+    <string name="payment_sdk_error_invalid_billing_zip_code">"رمز بريدي للفواتير غير صالح"</string>
+    <string name="payment_sdk_error_invalid_currency">"عملة غير صالحة"</string>
+    <string name="payment_sdk_error_invalid_merchant_country_code">"رمز بلد التاجر غير صالح (يجب أن يكون رمز ISO alpha-2)"</string>
+    <string name="payment_sdk_error_invalid_shipping_address">"عنوان الشحن غير صالح"</string>
+    <string name="payment_sdk_error_invalid_shipping_city">"مدينة الشحن غير صالحة"</string>
+    <string name="payment_sdk_error_invalid_shipping_country_code">"رمز بلد الشحن غير صالح"</string>
+    <string name="payment_sdk_error_invalid_shipping_email">"البريد الإلكتروني للشحن غير صالح"</string>
+    <string name="payment_sdk_error_invalid_shipping_full_name">"الاسم الكامل للشحن غير صالح"</string>
+    <string name="payment_sdk_error_invalid_shipping_phone">"رقم هاتف الشحن غير صالح"</string>
+    <string name="payment_sdk_error_invalid_shipping_state">"حالة الشحن غير صالحة"</string>
+    <string name="payment_sdk_error_invalid_shipping_zip_code">"رمز بريدي للشحن غير صالح"</string>
+    <string name="payment_sdk_error_missing_billing_info">"يرجى تقديم بيانات الفوترة"</string>
+    <string name="payment_sdk_error_missing_cart_description">"وصف عربة التسوق فارغ!"</string>
+    <string name="payment_sdk_error_missing_cart_id">"معرف عربة التسوق فارغ!"</string>
+    <string name="payment_sdk_error_missing_client_key">"مفتاح العميل مفقود!"</string>
+    <string name="payment_sdk_error_missing_config_data">"بيانات التكوين غير صالحة"</string>
+    <string name="payment_sdk_error_missing_currency">"العملة فارغة!"</string>
+    <string name="payment_sdk_error_missing_data_title">"بيانات مفقودة"</string>
+    <string name="payment_sdk_error_missing_merchant_country_code">"رمز بلد التاجر مفقود!"</string>
+    <string name="payment_sdk_error_missing_payment_callback">Missing Payment Callback</string>
+    <string name="payment_sdk_error_missing_profile_id">"معرف الملف الشخصي فارغ!"</string>
+    <string name="payment_sdk_error_missing_server_ip">"IP الخادم غير صالح"</string>
+    <string name="payment_sdk_error_missing_server_key">"مفتاح الخادم مفقود!"</string>
+    <string name="payment_sdk_error_missing_shipping_info">"يرجى تقديم بيانات الشحن"</string>
+    <string name="payment_sdk_error_missing_tokenization_token">"الرمز مفقود"</string>
+    <string name="payment_sdk_error_missing_transaction_reference">"مرجع المعاملة مفقود"</string>
+    <string name="payment_sdk_error_network">"خطأ في الشبكة ، يرجى المحاولة مرة أخرى!"</string>
+    <string name="payment_sdk_error_no_apms">"وسائل الدفع الاخرى مفقوده!"</string>
+    <string name="payment_sdk_error_validation_title">"خطئ في التحقق"</string>
+    <string name="payment_sdk_hint_postal_code">Postal Code</string>
+    <string name="payment_sdk_no">لا</string>
+    <string name="payment_sdk_ok">"حسنا"</string>
+    <string name="payment_sdk_powered_by">"مشغل بواسطة"</string>
+    <string name="payment_sdk_samsung_pay_error_missing_token">"رمز SamsungPay غير صالح"</string>
+    <string name="payment_sdk_save_continue">"حفظ ومتابعة"</string>
+    <string name="payment_sdk_shipping_address_city">"مدينة"</string>
+    <string name="payment_sdk_shipping_address_country">"بلد"</string>
+    <string name="payment_sdk_shipping_address_email">"البريد الإلكتروني"</string>
+    <string name="payment_sdk_shipping_address_full_name">"الاسم بالكامل"</string>
+    <string name="payment_sdk_shipping_address_phone">"رقم الهاتف"</string>
+    <string name="payment_sdk_shipping_address_state">"ولاية"</string>
+    <string name="payment_sdk_shipping_address_stree">"شارع"</string>
+    <string name="payment_sdk_shipping_address_zip">"الرمز البريدي"</string>
+    <string name="payment_sdk_shipping_details">"تفاصيل الشحن"</string>
+    <string name="payment_sdk_shipping_select_country">"حدد الدولة"</string>
+    <string name="payment_sdk_yes">نعم</string>
+    <string name="paytabs_and">الى</string>
+    <string name="paytabs_card_exp_month">شهر</string>
+    <string name="paytabs_card_exp_year">عام</string>
+    <string name="paytabs_card_holder_name">اسم حامل البطاقة</string>
+    <string name="paytabs_card_number">رقم البطاقة</string>
+    <string name="paytabs_err_amount">الكمية يجب ان تكون من</string>
+    <string name="paytabs_err_auth">بيانات التاجر غير صحيحه</string>
+    <string name="paytabs_err_card_cvv">من فضلك قم بادخال الـ CVV</string>
+    <string name="paytabs_err_card_exp">من فضلك قم بادخال تاريخ انتهاء بطاقة صحيح</string>
+    <string name="paytabs_err_card_name">من فضلك قم بادخال الاسم الموجود علي البطاقة</string>
+    <string name="paytabs_err_card_no">من فضلك قم بادخال رقم بطاقة صحيح</string>
+    <string name="paytabs_err_no_internet">من فضلك تأكد من الاتصال بالانترنت</string>
+    <string name="paytabs_err_timeout">انتهت مهلة العملية</string>
+    <string name="paytabs_err_unknown">خطأ غير محدد</string>
+    <string name="paytabs_error">خطأ</string>
+    <string name="paytabs_invalid_amount">كمية غير صحيحه</string>
+    <string name="paytabs_invalid_customer_name">اسم العميل غير صحيح</string>
+    <string name="paytabs_msg_payment_in_progress">جاري الدفع</string>
+    <string name="paytabs_msg_please_wait">انتظر من فضلك</string>
+    <string name="paytabs_msg_preparing_for_payments">جارى تحضير عملية الدفع</string>
+    <string name="paytabs_ok">موافق</string>
+    <string name="paytabs_pay_now">ادفع الان</string>
+    <string name="paytabs_start_payment_process">بدء عملية الدفع</string>
+    <string name="powered_by">مدعوم من:</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"البحث"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="wocr_button_enter_card_number">أدخل تفاصيل البطاقة يدويا</string>
+    <string name="wocr_hint_position_card_in_frame">ضع بطاقتك في هذا الإطار</string>
+    <string name="wocr_powered_by_pay_cards"/>
+    <string name="wocr_toggle_flash"/>
 </resources>

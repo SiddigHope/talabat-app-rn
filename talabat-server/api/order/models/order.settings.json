@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "Orders",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "count": {
+      "type": "string",
+      "required": true
+    },
+    "orderType": {
+      "type": "string",
+      "required": false,
+      "default": "takeaway"
+    },
+    "address": {
+      "type": "text"
+    },
+    "branch": {
+      "model": "branch"
+    },
+    "items": {
+      "collection": "item"
+    },
+    "branchName": {
+      "type": "string",
+      "required": true
+    },
+    "total": {
+      "type": "decimal",
+      "required": true
+    },
+    "paymentType": {
+      "type": "string",
+      "required": true
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "process": {
+      "type": "integer",
+      "default": 1
+    },
+    "delivery_boy": {
+      "model": "delivery-boy"
+    }
+  }
+}

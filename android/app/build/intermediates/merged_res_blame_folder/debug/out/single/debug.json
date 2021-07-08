@@ -1,5 +1,37 @@
 [
     {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-mdpi_logo.jpg.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-mdpi/logo.jpg"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_logo.jpg.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xhdpi/logo.jpg"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_logo.jpg.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xxhdpi/logo.jpg"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_logo.jpg.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xxxhdpi/logo.jpg"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_logo.jpg.flat",
+        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-hdpi/logo.jpg"
+    },
+    {
         "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
@@ -12,20 +44,8 @@
         "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/media/siddig/windows/Apps/talabatApp/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
         "merged": "/media/siddig/windows/Apps/talabatApp/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",

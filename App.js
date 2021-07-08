@@ -21,11 +21,32 @@ import ShowItem from './App/screens/ShowItem';
 import ItemsList from './App/screens/ItemsList';
 import Payment from './App/screens/Payment';
 import ChooseBranch from './App/screens/ChooseBranch';
+import GetAddress from './App/screens/GetAddress';
+import OrderProcess from './App/screens/OrderProcess';
+import VisaDetails from './App/screens/VisaDetails';
+import MyOrders from './App/screens/MyOrders';
+import HomeDelivery from './App/screens/HomeDelivery';
+import DeliveryProfile from './App/screens/DeliveryProfile';
+import DeliveryOrders from './App/screens/DeliveryOrders';
+import {firebaseConfig, requestUserPermission} from './App/config/Firebase';
+import app from '@react-native-firebase/app';
+import About from './App/screens/About';
+import Privacy from './App/screens/Privacy';
+import MyFav from './App/screens/MyFav';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    try {
+      requestUserPermission();
+      app.initializeApp(firebaseConfig);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
@@ -65,10 +86,156 @@ function Stacks() {
         }}
       />
       <Stack.Screen
+        name="HomeDelivery"
+        component={HomeDelivery}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="OrderProcess"
+        component={OrderProcess}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="GetAddress"
+        component={GetAddress}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="Login"
         component={Login}
         options={{
           title: 'تسجيل الدخول',
+          headerStyle: {
+            backgroundColor: '#FFF',
+            elevation: 0,
+          },
+          headerTintColor: '#333',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
+              style={{marginLeft: 10}}
+              color="#333"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="DeliveryProfile"
+        component={DeliveryProfile}
+        options={{
+          title: 'حسابي',
+          headerStyle: {
+            backgroundColor: '#FFF',
+            elevation: 0,
+          },
+          headerTintColor: '#333',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
+              style={{marginLeft: 10}}
+              color="#333"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="About"
+        component={About}
+        options={{
+          title: 'عنا',
+          headerStyle: {
+            backgroundColor: '#333',
+            elevation: 0,
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
+              style={{marginLeft: 10}}
+              color="#FFF"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Privacy"
+        component={Privacy}
+        options={{
+          title: 'الخصوصية',
+          headerStyle: {
+            backgroundColor: '#333',
+            elevation: 0,
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
+              style={{marginLeft: 10}}
+              color="#FFF"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="MyOrders"
+        component={MyOrders}
+        options={{
+          title: 'حجوزاتي',
+          headerStyle: {
+            backgroundColor: '#FFF',
+            elevation: 0,
+          },
+          headerTintColor: '#333',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
+              style={{marginLeft: 10}}
+              color="#333"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="DeliveryOrders"
+        component={DeliveryOrders}
+        options={{
+          title: 'توصيلاتي',
           headerStyle: {
             backgroundColor: '#FFF',
             elevation: 0,
@@ -245,7 +412,7 @@ function Stacks() {
         options={{
           title: 'حسابي الشخصي',
           headerStyle: {
-            backgroundColor: '#2196f3',
+            backgroundColor: '#333',
             elevation: 0,
           },
           headerTintColor: '#fff',
@@ -256,6 +423,31 @@ function Stacks() {
           headerBackImage: () => (
             <Icon
               name="chevron-back-circle"
+              style={{marginLeft: 10}}
+              color="#FFF"
+              size={30}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="MyFav"
+        component={MyFav}
+        options={{
+          title: 'المفضلة',
+          headerStyle: {
+            backgroundColor: '#333',
+            elevation: 0,
+          },
+          headerTintColor: '#FFF',
+          headerTitleStyle: {
+            alignSelf: 'flex-start',
+            fontFamily: 'Tajawal-Bold',
+          },
+          headerRight: () => <View />,
+          headerBackImage: () => (
+            <Icon
+              name="chevron-back"
               style={{marginLeft: 10}}
               color="#FFF"
               size={30}

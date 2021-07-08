@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "416872381018",
+    "project_id": "talabat-1c532",
+    "storage_bucket": "talabat-1c532.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416872381018:android:bff82d0b2021d23e5cb663",
+        "android_client_info": {
+          "package_name": "com.talabatadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416872381018-2qlbjbki8ts070mj9mfbmpapui0gsmlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5HkA16JKdLyzE-gZswJkQwySTvlxdCpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416872381018-2qlbjbki8ts070mj9mfbmpapui0gsmlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416872381018:android:a75c93aa8ad96aea5cb663",
+        "android_client_info": {
+          "package_name": "com.talabatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416872381018-2qlbjbki8ts070mj9mfbmpapui0gsmlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5HkA16JKdLyzE-gZswJkQwySTvlxdCpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416872381018-2qlbjbki8ts070mj9mfbmpapui0gsmlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

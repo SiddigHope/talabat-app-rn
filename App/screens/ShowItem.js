@@ -7,8 +7,10 @@ import {
   Image,
   ScrollView,
   Pressable,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {width, height} = Dimensions.get('window');
 
@@ -16,52 +18,148 @@ export default class ShowItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: [],
+      item: this.props.route.params.item,
       itemCount: 1,
+      price: this.props.route.params.item.price,
+      fav: [],
+      color: '#333',
+      icon: 'heart-outline',
     };
   }
 
   componentDidMount() {
+    // console.log(this.props.route.params.item);
     this.setState({
       item: this.props.route.params.item,
     });
+    this.getFav();
   }
+
+  getFav = async () => {
+    const sFav = await AsyncStorage.getItem('talabat-fav');
+    if (sFav != null) {
+      const fav = JSON.parse(sFav);
+      console.log('fav')
+      console.log(fav)
+      console.log('this.state.item')
+      console.log(this.state.item)
+      const index = fav.indexOf(this.state.item.created_at);
+      console.log(index)
+      if (index > -1) {
+        this.setState({
+          color: '#e57373',
+          icon: 'heart',
+        });
+      }
+      this.setState({fav});
+    }
+  };
+
+  increaseCount = () => {
+    this.setState({
+      itemCount: this.state.itemCount + 1,
+      price: this.props.route.params.item.price * (this.state.itemCount + 1),
+    });
+  };
+
+  decreaseCount = () => {
+    if (this.state.itemCount <= 1) {
+      return;
+    }
+    this.setState({
+      itemCount: this.state.itemCount - 1,
+      price: this.props.route.params.item.price * (this.state.itemCount - 1),
+    });
+  };
+
+  addToCart = async () => {
+    // AsyncStorage.removeItem('cart')
+    const user = await AsyncStorage.getItem('talabat-user');
+    if (user != null) {
+      console.log('user logged in');
+    } else {
+      this.props.navigation.navigate('Login');
+      return;
+    }
+    this.state.item.count = this.state.itemCount;
+    this.state.item.price = this.state.price;
+    const cart = await AsyncStorage.getItem('cart');
+    if (cart != null) {
+      const jsonCart = JSON.parse(cart);
+      jsonCart.push(this.state.item);
+      console.log(jsonCart);
+      AsyncStorage.setItem('cart', JSON.stringify(jsonCart));
+    } else {
+      AsyncStorage.setItem('cart', JSON.stringify([this.state.item]));
+    }
+    Alert.alert(
+      'Talabat App',
+      'Do you want to shop more ?',
+      [
+        {
+          text: 'No',
+          onPress: () => this.props.navigation.navigate('ItemsList'),
+          style: 'cancel',
+        },
+        {text: 'Yes', onPress: () => this.props.navigation.navigate('Home')},
+      ],
+      {cancelable: false}
+    );
+  };
+
+  makeRedHeart = async () => {
+    // AsyncStorage.removeItem('talabat-fav')
+    const {fav} = this.state;
+    fav.push(this.state.item.created_at);
+    this.setState({
+      fav,
+      color: '#e57373',
+      icon: 'heart',
+    });
+    AsyncStorage.setItem('talabat-fav', JSON.stringify(fav));
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerImage}>
-            <Image source={this.state.item.image} style={styles.image} />
+            <Image
+              source={{
+                uri: 'http://192.168.43.148:1337' + this.state.item.image.url,
+              }}
+              style={styles.image}
+            />
           </View>
           <View style={styles.bodyContent}>
             <ScrollView
               contentContainerStyle={{flex: 1}}
-              showsVerticalScrollIndicator={false}>
-              <Text style={styles.title}> {this.state.item.title} </Text>
+              showsVerticalScrollIndicator={false}
+            >
+              <Text style={styles.title}> {this.state.item.name} </Text>
               <View style={styles.subHeader}>
                 <View style={styles.countCont}>
-                  <Pressable>
+                  <Pressable onPress={() => this.decreaseCount()}>
                     <Icon name="minus" size={20} />
                   </Pressable>
                   <Text style={styles.itemCount}> {this.state.itemCount} </Text>
-                  <Pressable>
+                  <Pressable onPress={() => this.increaseCount()}>
                     <Icon name="plus" size={20} />
                   </Pressable>
                 </View>
-                <Text style={styles.price}>{'$' + this.state.item.price}</Text>
+                <Text style={styles.price}>{'$' + this.state.price}</Text>
               </View>
               <Text style={{fontFamily: 'Tajawal-Regular', fontSize: 16}}>
-                {this.state.item.desc}
+                {this.state.item.description}
               </Text>
             </ScrollView>
           </View>
         </View>
         <View style={styles.footer}>
-          <Pressable>
-            <Icon name="heart-outline" size={25} color="#333" />
+          <Pressable onPress={() => this.makeRedHeart()}>
+            <Icon name={this.state.icon} size={25} color={this.state.color} />
           </Pressable>
-          <Pressable style={styles.btn}>
+          <Pressable onPress={() => this.addToCart()} style={styles.btn}>
             <Text style={styles.btnText}> {'اضافة للسلة'} </Text>
           </Pressable>
         </View>
@@ -116,7 +214,7 @@ const styles = StyleSheet.create({
     height: 35,
     borderRadius: 20,
     paddingHorizontal: 5,
-    width: '30%',
+    width: '40%',
     borderWidth: 0.5,
     borderColor: '#333',
     alignItems: 'center',

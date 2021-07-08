@@ -12,6 +12,8 @@ target 'talabatApp' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-paymentsdk', :path => '../node_modules/@paytabs/react-native-paytabs'
+
   target 'talabatAppTests' do
     inherit! :complete
     # Pods for testing

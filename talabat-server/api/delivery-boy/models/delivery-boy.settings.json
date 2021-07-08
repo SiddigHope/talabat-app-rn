@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "DeliveryBoys",
+  "info": {
+    "name": "deliveryBoy",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "integer",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 6
+    },
+    "available": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "carType": {
+      "type": "string",
+      "required": true
+    },
+    "carSerial": {
+      "type": "text",
+      "required": true
+    },
+    "token": {
+      "type": "text"
+    }
+  }
+}

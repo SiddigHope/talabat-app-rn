@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/branch-admins",
+      "handler": "branch-admin.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/branch-admins/count",
+      "handler": "branch-admin.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/branch-admins/:id",
+      "handler": "branch-admin.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/branch-admins",
+      "handler": "branch-admin.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/branch-admins/:id",
+      "handler": "branch-admin.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/branch-admins/:id",
+      "handler": "branch-admin.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
